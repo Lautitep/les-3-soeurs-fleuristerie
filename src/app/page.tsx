@@ -1,16 +1,28 @@
-import Head from 'next/head';
+'use client'
+import styled from 'styled-components';
+import Header from './components/home/Header';
+import InfoBanner from './components/home/InfoBanner';
+import Footer from './components/Footer';
+import About from './components/home/About';
+import { colors } from './components/styledComponents';
+import Ethics from './components/home/Ethics';
+import Offers from './components/home/Offers';
+
+const WhiteBanner = styled.div`
+  background-color: ${colors.beige100};
+  height: 300px;
+`;
 
 export default function Home() {
   return (
-    <div>
-      <Head>
-        <title>Fleuriste</title>
-        <meta name="description" content="Le meilleur fleuriste de la ville" />
-      </Head>
-      <main>
-        <h1>Bienvenue chez notre Fleuriste</h1>
-        <p>Découvrez nos magnifiques bouquets et arrangements floraux.</p>
-      </main>
-    </div>
+    <>
+      <Header />
+      <InfoBanner />
+      <Offers />
+      {/* <Ethics /> */}
+      <About />
+      <WhiteBanner />
+      <Footer />
+    </>
   );
 }
