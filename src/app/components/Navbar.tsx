@@ -5,17 +5,26 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { menuBarHeightPixels, colors } from '../components/styledComponents';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
-const Nav = styled.nav<{ scrolled: boolean }>`
+const Nav = styled.nav<{ scrolled: boolean; isAbonnementPage: boolean }>`
   padding: 1rem;
-  background-color: ${(props) => (props.scrolled ? `${colors.beige100}` : 'transparent')};
-  color: ${(props) => (props.scrolled ? '#000' : `${colors.beige100}`)};
+
+  background-color: ${(props) =>
+    props.scrolled ? `${colors.beige100}` : 'transparent'};
+  color: ${(props) =>
+    props.scrolled && !props.isAbonnementPage ? '#000' : `#fff`};
+  ${(props) =>
+    props.isAbonnementPage &&
+    `color: ${colors.beige100}; background-color: ${colors.pink};`}
   position: fixed;
   width: 100%;
   height: ${menuBarHeightPixels};
   top: 0;
   left: 0;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
   z-index: 10;
 `;
 
@@ -28,10 +37,12 @@ const NavList = styled.ul`
 
 const NavItem = styled.li``;
 
-const StyledLink = styled.p<{ scrolled: boolean }>`
-  color: ${(props) => (props.scrolled ? '#000' : '#fff')};
+const StyledLink = styled.p<{ scrolled: boolean; isAbonnementPage: boolean }>`
+  color: ${(props) =>
+    props.scrolled && !props.isAbonnementPage ? '#000' : '#fff'};
   position: relative;
   text-decoration: none;
+  font-size: 20px;
 
   &::after {
     content: '';
@@ -40,7 +51,8 @@ const StyledLink = styled.p<{ scrolled: boolean }>`
     height: 2px;
     bottom: -4px;
     left: 0;
-    background-color: ${(props) => (props.scrolled ? '#000' : '#fff')};
+    background-color: ${(props) =>
+      props.scrolled && !props.isAbonnementPage ? '#000' : '#fff'};
     transition: width 0.5s ease;
   }
 
@@ -51,6 +63,8 @@ const StyledLink = styled.p<{ scrolled: boolean }>`
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isAbonnementPage = pathname === '/abonnement';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,31 +83,49 @@ export default function Navbar() {
   }, []);
 
   return (
-    <Nav scrolled={scrolled}>
+    <Nav scrolled={scrolled} isAbonnementPage={isAbonnementPage}>
       <NavList>
         <NavItem>
-          <Link href="/" passHref>
-            <StyledLink scrolled={scrolled}>Évènements</StyledLink>
+          <Link href="/evenements" passHref>
+            <StyledLink scrolled={scrolled} isAbonnementPage={isAbonnementPage}>
+              Évènements
+            </StyledLink>
+          </Link>
+        </NavItem>
+        <NavItem>
+          <Link href="/abonnement" passHref>
+            <StyledLink scrolled={scrolled} isAbonnementPage={isAbonnementPage}>
+              Bouquet du mois
+            </StyledLink>
           </Link>
         </NavItem>
         <NavItem>
           <Link href="/" passHref>
-            <StyledLink scrolled={scrolled}>Abonnement</StyledLink>
+            <Image
+              src={
+                scrolled && !isAbonnementPage
+                  ? '/logos/les3soeurs_black.png'
+                  : '/logos/les3soeurs_white.png'
+              }
+              alt="logo"
+              width={150}
+              height={0}
+              style={{ height: 'auto', marginTop: '7px' }}
+            />
           </Link>
         </NavItem>
         <NavItem>
-          <Link href="/" passHref>
-            <Image src={scrolled ? "/logos/les3soeurs_black.png" : "/logos/les3soeurs_white.png"} alt="logo" width={120} height={0} style={{ height: 'auto' }} />
+          <Link href="/ateliers" passHref>
+            <StyledLink scrolled={scrolled} isAbonnementPage={isAbonnementPage}>
+              Ateliers
+            </StyledLink>
           </Link>
         </NavItem>
         <NavItem>
-          <Link href="/contact" passHref>
-            <StyledLink scrolled={scrolled}>Bouquet du mois</StyledLink>
-          </Link>
-        </NavItem>
-        <NavItem>
-          <Link href="/contact" passHref>
-            <StyledLink scrolled={scrolled}>Professionnel</StyledLink>
+          <Link href="/professionnel" passHref>
+            <StyledLink scrolled={scrolled} isAbonnementPage={isAbonnementPage}>
+              Professionnel
+            </StyledLink>
           </Link>
         </NavItem>
       </NavList>

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { frames, margins, colors } from '../styledComponents';
+import { frames, margins } from '../styledComponents';
 
 const Container = styled.div`
   display: flex;
@@ -70,19 +70,25 @@ export default function Offers() {
       <ImgContainer>
         <Img src="/offers/offer.jpg" alt="offre évènements" />
         <Overlay className="overlay">
-          <OverlayText href="/evenement" className="overlay-text">Évènements</OverlayText>
+          <OverlayText href="/evenements" className="overlay-text">
+            Évènements
+          </OverlayText>
         </Overlay>
       </ImgContainer>
       <ImgContainer>
         <Img src="/offers/offer2.jpg" alt="offre ateliers" />
         <Overlay className="overlay">
-          <OverlayText href="/atelier" className="overlay-text">Ateliers</OverlayText>
+          <OverlayText href="/ateliers" className="overlay-text">
+            Ateliers
+          </OverlayText>
         </Overlay>
       </ImgContainer>
       <ImgContainer>
         <Img src="/offers/offer3.jpg" alt="offre bouquet du mois" />
         <Overlay className="overlay">
-          <OverlayText href="/mariage" className="overlay-text">Bouquet du mois</OverlayText>
+          <OverlayText href="/abonnement" className="overlay-text">
+            Bouquet du mois
+          </OverlayText>
         </Overlay>
       </ImgContainer>
     </Container>

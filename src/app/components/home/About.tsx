@@ -5,7 +5,7 @@ import { colors, fonts, frames, margins } from '../styledComponents';
 const Container = styled.div`
   display: flex;
   height: 600px;
-  margin: ${margins.desktop} 0;
+  margin: ${margins.desktop} 0 0;
 `;
 
 const TextContainer = styled.div`
@@ -48,16 +48,23 @@ export default function About() {
     <Container>
       <TextContainer>
         <Title>NOTRE HISTOIRE</Title>
-        <Line/>
+        <Line />
         <Text>
-          8 ans après Jolies Fleurs ma première boutique, je reprends le chemin de la création d’entreprise en créant LES 3 SŒURS.
-          Plus de boutique mais un atelier pour continuer à créer bouquets et compositions pour toutes les occasions…
-          <br/>
-          C’est l’esprit ouvert et rêveur suite à un séjour d’un an au Québec que je retrouve avec beaucoup de joie et d’excitation le chemin de mes fleurs chéries.
-          <br/>
-          J’ai tellement hâte de vous rencontrer ou retrouver !
-          <br/>
-          A très vite
+          Après plusieurs années dans l’événementiel, l’envie d’un métier plus
+          ancré, plus créatif et connecté à la nature s’est imposée comme une
+          évidence. C’est ainsi qu’est née ma reconversion vers la fleur,
+          d’abord avec Jolies Fleurs, ma première boutique, puis aujourd’hui
+          avec Les 3 Sœurs.
+          <br />
+          Ce projet puise son inspiration dans un séjour d’un an au Canada, où
+          j’ai découvert la permaculture et une manière plus consciente de
+          travailler avec le vivant. Le nom Les 3 Sœurs fait d’ailleurs écho à
+          cette méthode d’association végétale où chaque plante soutient les
+          deux autres. Symbole d’équilibre, de complicité et de transmission.
+          <br />
+          Les 3 Sœurs, c’est l’alliance entre l’artisanat floral, la créativité
+          et le lien humain. Un atelier où l’on compose, où l’on partage, et où
+          l’on célèbre la vie en fleurs.
         </Text>
       </TextContainer>
       <Portrait src="/claire_portrait.jpg" alt="portrait de Claire" />

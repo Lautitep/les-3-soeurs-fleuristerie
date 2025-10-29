@@ -36,7 +36,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: 1;
 `;
 
@@ -49,7 +49,13 @@ export default function Header() {
   return (
     <Container>
       <Overlay />
-      <Logo src="/logos/logo_white.png" alt="logo" width={200} height={0} style={{ height: 'auto' }} />
+      <Logo
+        src="/logos/logo_white.png"
+        alt="logo"
+        width={200}
+        height={0}
+        style={{ height: 'auto' }}
+      />
       <Description>Fleurs locales et de saison</Description>
     </Container>
   );

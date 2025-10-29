@@ -1,11 +1,12 @@
-import styled from "styled-components";
-import { colors, frames } from "./styledComponents";
-import SocialIcons from "./SocialIcons";
+import styled from 'styled-components';
+import { colors, frames } from './styledComponents';
+import SocialIcons from './SocialIcons';
+import Link from 'next/link';
 
 const FooterContainer = styled.footer`
   background-color: ${colors.pink};
   color: white;
-  padding: 90px ${frames.desktop} 30px;
+  padding: 90px 272px 30px;
 `;
 const BlockContainer = styled.div`
   display: flex;
@@ -24,8 +25,12 @@ const Title = styled.h2`
   font-weight: 700;
   text-transform: uppercase;
 `;
-const ContactLink = styled.h2`
-  font-size: 16px;
+
+const StyledLink = styled.p`
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 `;
 
 export default function Footer() {
@@ -34,26 +39,37 @@ export default function Footer() {
       <BlockContainer>
         <SubContainer>
           <Title>Contact</Title>
-          <p>Basé à Achicourt (62217)</p>
-          <a href='mailto:les3soeurs.fleuristerie@gmail.com'>les3soeurs.fleuristerie@gmail.com</a>
-          <a href='tel:+33647930161' >+33 6 47 93 01 61</a>
+          <p>Basée à Arras (62000)</p>
+          <a href="mailto:les3soeurs.fleuristerie@gmail.com">
+            les3soeurs.fleuristerie@gmail.com
+          </a>
+          <a href="tel:+33647930161">+336 47 93 01 61</a>
           <SocialIcons />
         </SubContainer>
         <SubContainer>
-          <Title>Évènements & Mariages</Title>
-          <p>Ateliers</p>
-          <p>Livraisons</p>
+          <Title>Pages</Title>
+          <Link href="/evenements" passHref>
+            <StyledLink>Évènements</StyledLink>
+          </Link>
+          <Link href="/abonnement" passHref>
+            <StyledLink>Bouquet du mois</StyledLink>
+          </Link>
+          <Link href="/ateliers" passHref>
+            <StyledLink>Ateliers</StyledLink>
+          </Link>
+          <Link href="/professionnel" passHref>
+            <StyledLink>Professionnel</StyledLink>
+          </Link>
+          <StyledLink>Contact</StyledLink>
         </SubContainer>
         <SubContainer>
           <Title>À propos</Title>
           <p>Mentions Légales</p>
           <p>CGV</p>
           <p>CGU</p>
-          <p>Politique de confidentialité</p>
-          <p>Politique en matière de remboursements et de retours</p>
         </SubContainer>
       </BlockContainer>
-      <p>© 2024, Les 3 Soeurs</p>
+      <p>© 2025, Les 3 Soeurs - Créé par Laubingo</p>
     </FooterContainer>
   );
 }
