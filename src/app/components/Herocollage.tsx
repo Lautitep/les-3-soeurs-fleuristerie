@@ -2,6 +2,7 @@
 
 import styled from 'styled-components';
 import { frames, margins, colors } from './styledComponents';
+import { media } from '../media';
 
 type CollageProps = {
   main: { src: string; alt?: string };
@@ -12,9 +13,13 @@ type CollageProps = {
 const Wrapper = styled.section`
   margin: 0 ${frames.desktop} ${margins.desktop};
 
-  @media (max-width: 900px) {
+  ${media.tablet(`
+    margin: 0 ${frames.tablet} ${margins.mobile};
+  `)}
+
+  ${media.mobile(`
     margin: 0 ${frames.mobile} ${margins.mobile};
-  }
+  `)}
 `;
 
 const Stage = styled.div`
@@ -27,6 +32,10 @@ const Cluster = styled.div`
   position: relative;
   width: min(100%, 1000px);
   aspect-ratio: 1000 / 625;
+
+  ${media.mobile(`
+
+  `)}
 `;
 
 const PhotoBase = styled.figure<{
@@ -55,16 +64,6 @@ const PhotoBase = styled.figure<{
   }
   &:hover img {
     transform: scale(1.03);
-  }
-
-  @media (max-width: 900px) {
-    position: relative;
-    width: 100%;
-    left: 0;
-    top: 0;
-    aspect-ratio: auto;
-    box-shadow: none;
-    margin-bottom: 12px;
   }
 `;
 

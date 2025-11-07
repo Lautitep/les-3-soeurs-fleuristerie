@@ -1,6 +1,7 @@
 'use client';
 import styled from 'styled-components';
-import { colors, margins } from './styledComponents';
+import { colors, margins, mobileThresholdPixels } from './styledComponents';
+import { media } from '../media';
 
 const Container = styled.section<{ marginBottom?: boolean }>`
   display: grid;
@@ -9,8 +10,9 @@ const Container = styled.section<{ marginBottom?: boolean }>`
   position: relative;
   margin-bottom: ${(props) => (props.marginBottom ? margins.desktop : '0')};
 
-  @media (max-width: 900px) {
+  @media (max-width: ${mobileThresholdPixels}) {
     grid-template-columns: 1fr;
+    margin-bottom: ${(props) => (props.marginBottom ? margins.mobile : '0')};
   }
 `;
 
@@ -20,9 +22,9 @@ const MediaBlock = styled.div`
   height: 750px;
   overflow: hidden;
 
-  @media (max-width: 900px) {
+  ${media.mobile(`
     height: 300px;
-  }
+  `)}
 `;
 
 const Img = styled.img`
@@ -48,6 +50,11 @@ const Caption = styled.p`
   position: absolute;
   bottom: 2%;
   left: 1%;
+
+  ${media.mobile(`
+    bottom: 1%;
+    right: 0%;
+  `)}
 `;
 
 interface TriptychProps {

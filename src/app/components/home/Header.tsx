@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import { menuBarHeightPixels, fonts, margins } from '../styledComponents';
 import Image from 'next/image';
+import { media } from '@/app/media';
 
 const Container = styled.div`
   text-align: center;
@@ -18,6 +19,9 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  ${media.tablet(`
+    margin-bottom: ${margins.mobile};
+  `)}
 `;
 
 const Description = styled.p`
@@ -28,6 +32,9 @@ const Description = styled.p`
   z-index: 2;
   font-family: ${fonts.nanum};
   font-weight: 100;
+  ${media.mobile(`
+    font-size: 18px;
+    `)}
 `;
 
 const Overlay = styled.div`

@@ -2,6 +2,7 @@
 
 import styled from 'styled-components';
 import { frames, colors, fontSizes, margins } from './styledComponents';
+import { media } from '../media';
 
 const Section = styled.section`
   background: ${colors.beige200};
@@ -9,9 +10,15 @@ const Section = styled.section`
   text-align: center;
   margin: ${margins.desktop} 0;
 
-  @media (max-width: 900px) {
-    padding: 60px ${frames.mobile};
-  }
+  ${media.tablet(`
+    padding: 32px ${frames.tablet};
+    margin: ${margins.mobile} 0;
+  `)}
+
+  ${media.mobile(`
+    padding: 32px ${frames.mobile};
+    margin: ${margins.mobile} 0;
+  `)}
 `;
 
 const Title = styled.h3`
@@ -26,10 +33,11 @@ const Grid = styled.div`
   gap: 32px;
   margin-top: 32px;
 
-  @media (max-width: 900px) {
+  ${media.mobile(`
     grid-template-columns: 1fr;
-    gap: 24px;
-  }
+    gap: 20px;
+    margin-top: 24px;
+  `)}
 `;
 
 const Card = styled.blockquote`
@@ -38,10 +46,16 @@ const Card = styled.blockquote`
   text-align: left;
   position: relative;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.5;
   font-style: italic;
   border-radius: 4px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+  ${media.mobile(`
+    padding: 18px;
+    font-size: 15px;
+    line-height: 1.5;
+  `)}
 `;
 
 const Author = styled.footer`
@@ -49,6 +63,11 @@ const Author = styled.footer`
   text-align: right;
   font-style: normal;
   font-weight: 600;
+
+  ${media.mobile(`
+    font-size: 14px;
+    margin-top: 12px;
+  `)}
 `;
 
 export default function Feedbacks() {

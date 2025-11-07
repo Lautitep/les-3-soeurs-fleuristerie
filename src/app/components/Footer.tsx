@@ -1,36 +1,80 @@
 import styled from 'styled-components';
-import { colors, frames } from './styledComponents';
+import { colors, fontSizes, frames, margins } from './styledComponents';
 import SocialIcons from './SocialIcons';
 import Link from 'next/link';
+import { media } from '@/app/media';
 
 const FooterContainer = styled.footer`
   background-color: ${colors.pink};
-  color: white;
+  color: ${colors.white};
   padding: 90px 272px 30px;
+
+  ${media.tablet(`
+    padding: 80px ${frames.tablet} 30px;
+  `)}
+
+  ${media.mobile(`
+    padding: ${margins.mobile} ${frames.mobile} 20px;
+    text-align: center;
+  `)}
 `;
+
 const BlockContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   padding-bottom: 50px;
+
+  ${media.tablet(`
+    gap: 40px;
+  `)}
+
+  ${media.mobile(`
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding-bottom: 32px;
+  `)}
 `;
+
 const SubContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: flex-start;
-  text-align: flex-start;
+
+  ${media.mobile(`
+    align-items: center;
+  `)}
 `;
-const Title = styled.h2`
-  font-size: 30px;
-  font-weight: 700;
+
+const Title = styled.h3`
+  font-size: ${fontSizes.h3};
   text-transform: uppercase;
+  margin-bottom: 10px;
+
+  ${media.mobile(`
+    font-size: 20px;
+  `)}
 `;
 
 const StyledLink = styled.p`
+  font-size: ${fontSizes.body};
   &:hover {
     text-decoration: underline;
     cursor: pointer;
   }
+
+  ${media.mobile(`
+    font-size: 15px;
+  `)}
+`;
+
+const FooterBottom = styled.p`
+  font-size: 14px;
+  text-align: center;
+  opacity: 0.9;
+  margin-top: 20px;
 `;
 
 export default function Footer() {
@@ -43,9 +87,10 @@ export default function Footer() {
           <a href="mailto:les3soeurs.fleuristerie@gmail.com">
             les3soeurs.fleuristerie@gmail.com
           </a>
-          <a href="tel:+33647930161">+336 47 93 01 61</a>
+          <a href="tel:+33647930161">+33 6 47 93 01 61</a>
           <SocialIcons />
         </SubContainer>
+
         <SubContainer>
           <Title>Pages</Title>
           <Link href="/evenements" passHref>
@@ -62,14 +107,24 @@ export default function Footer() {
           </Link>
           <StyledLink>Contact</StyledLink>
         </SubContainer>
+
         <SubContainer>
           <Title>À propos</Title>
-          <p>Mentions Légales</p>
-          <p>CGV</p>
-          <p>CGU</p>
+          <Link href="/mentionslegales" passHref>
+            <StyledLink>Mentions légales</StyledLink>
+          </Link>
+          <Link href="/cgv" passHref>
+            <StyledLink>CGV</StyledLink>
+          </Link>
+          <Link href="/politique-de-confidentialite" passHref>
+            <StyledLink>Politique de confidentialité</StyledLink>
+          </Link>
         </SubContainer>
       </BlockContainer>
-      <p>© 2025, Les 3 Soeurs - Créé par Laubingo</p>
+
+      <FooterBottom>
+        © 2025, Les 3 Sœurs — Tissé de code et de pétales par Laubingo 🌷
+      </FooterBottom>
     </FooterContainer>
   );
 }

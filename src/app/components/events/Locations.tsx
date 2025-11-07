@@ -2,6 +2,7 @@
 
 import styled from 'styled-components';
 import { frames, colors, margins, TitleH3 } from '../styledComponents';
+import { media } from '@/app/media';
 
 const Section = styled.section`
   background: ${colors.lightGrey};
@@ -10,9 +11,14 @@ const Section = styled.section`
   margin: ${margins.desktop} 0;
   color: ${colors.beige100};
 
-  @media (max-width: 900px) {
-    padding: 60px ${frames.mobile};
-  }
+  ${media.tablet(`
+    padding: 96px ${frames.tablet};
+    margin: ${margins.mobile} 0;
+  `)}
+
+  ${media.mobile(`
+    padding: 40px ${frames.mobile};
+  `)}
 `;
 
 const Grid = styled.div`
@@ -21,6 +27,11 @@ const Grid = styled.div`
   justify-content: center;
   margin-top: 32px;
   gap: 100px;
+
+  ${media.mobile(`
+    gap: 20px 40px;
+    margin-top: 24px;
+  `)}
 `;
 
 const Card = styled.div`
@@ -30,11 +41,19 @@ const Card = styled.div`
     transform: scale(1.15);
     transition: transform 300ms ease-in-out;
   }
+
+  ${media.mobile(`
+    max-width: 70px;
+  `)}
 `;
 
 const Img = styled.img`
   width: 100%;
   height: 100%;
+
+  ${media.mobile(`
+    object-fit: contain;
+  `)}
 `;
 
 const locations = [

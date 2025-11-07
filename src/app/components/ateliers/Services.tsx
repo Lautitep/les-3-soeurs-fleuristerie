@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { frames, margins, fontSizes } from '../styledComponents';
+import { media } from '@/app/media';
 
 const Container = styled.div`
   max-width: 1180px;
@@ -9,6 +10,15 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 40px;
+
+  ${media.tablet(`
+    margin: 0 auto ${margins.mobile};
+    gap: 32px;
+  `)}
+
+  ${media.mobile(`
+    gap: 24px;
+  `)}
 `;
 
 const BlockContainer = styled.div<{ flexDirection: boolean }>`
@@ -20,6 +30,19 @@ const BlockContainer = styled.div<{ flexDirection: boolean }>`
   max-width: 1000px;
   width: 100%;
   gap: 40px;
+
+  ${media.tablet(`
+    gap: 24px;
+    justify-content: center;
+    max-width: 90%;
+  `)}
+
+  ${media.mobile(`
+    flex-direction: column;
+    gap: 16px;
+    text-align: start;
+    max-width: 87%;
+  `)}
 `;
 
 const Img = styled.img`
@@ -27,10 +50,24 @@ const Img = styled.img`
   border-radius: 4px;
   width: 500px;
   height: 405px;
+
+  ${media.tablet(`
+    width: 400px;
+    height: 320px;
+  `)}
+
+  ${media.mobile(`
+    width: 100%;
+    height: 240px;
+  `)}
 `;
 
 const TextContainer = styled.div`
   max-width: 460px;
+
+  ${media.mobile(`
+    max-width: 100%;
+  `)}
 `;
 
 const Title = styled.h2`
@@ -38,11 +75,28 @@ const Title = styled.h2`
   font-weight: 700;
   text-transform: uppercase;
   margin: 0;
+
+  ${media.tablet(`
+    font-size: 24px;
+  `)}
+
+  ${media.mobile(`
+    font-size: 20px;
+  `)}
 `;
 
 const Text = styled.p`
   font-size: ${fontSizes.body};
   font-weight: 200;
+
+  ${media.tablet(`
+    font-size: 15px;
+  `)}
+
+  ${media.mobile(`
+    font-size: 14px;
+    line-height: 1.5;
+  `)}
 `;
 
 const articles = [
@@ -62,6 +116,7 @@ const articles = [
     image: '/ateliers/pro.jpg',
   },
 ];
+
 export default function Services() {
   return (
     <Container>

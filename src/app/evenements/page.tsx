@@ -1,8 +1,8 @@
 'use client';
+import { useResponsive } from '@/app/useResponsive';
 import Footer from '../components/Footer';
 import HeaderBanner from '../components/HeaderBanner';
 import styled from 'styled-components';
-import { menuBarHeightPixels } from '../components/styledComponents';
 import Intro from '../components/Intro';
 import Portfolio from '../components/Portfolio';
 import HeroCollage from '../components/Herocollage';
@@ -10,6 +10,7 @@ import Feedbacks from '../components/Feedbacks';
 import Locations from '../components/events/Locations';
 import ContactBlock from '../components/ContactBlock';
 import { useRef } from 'react';
+import PortfolioMobile from '../components/PortfolioMobile';
 
 const Container = styled.div`
   width: 100%;
@@ -50,6 +51,9 @@ const Events = () => {
       contactRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const { isMobile } = useResponsive();
+
   return (
     <Container>
       <HeaderBanner
@@ -65,7 +69,11 @@ const Events = () => {
       />
       <HeroCollage {...heroCollageImages} />
       <Feedbacks />
-      <Portfolio photos={photos} />
+      {isMobile ? (
+        <PortfolioMobile photos={photos} />
+      ) : (
+        <Portfolio photos={photos} />
+      )}
       <Locations />
       <div ref={contactRef}>
         <ContactBlock image="/events/contact.mariage.jpg" />

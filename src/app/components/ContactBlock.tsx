@@ -1,32 +1,49 @@
 'use client';
 
 import styled from 'styled-components';
-import { frames, margins, colors } from './styledComponents';
+import {
+  frames,
+  margins,
+  colors,
+  mobileThresholdPixels,
+} from './styledComponents';
 import toast from 'react-hot-toast';
 import { useState } from 'react';
+import { media } from '../media';
 
-const Section = styled.section`
+const Section = styled.section<{ proPage?: boolean }>`
   display: flex;
   align-items: stretch;
   gap: 0;
   min-height: 460px;
   padding: 0 0 ${margins.desktop};
 
-  @media (max-width: 900px) {
-    flex-direction: column;
+  ${media.tablet(`
+    padding: 0 0 ${margins.mobile};
+  `)}
+
+  @media (max-width: ${mobileThresholdPixels}) {
+    flex-direction: ${(props) => (props.proPage ? 'column-reverse' : 'column')};
+    padding: 0 ${frames.mobile} ${margins.mobile};
+    min-height: auto;
   }
 `;
 
-const FormSide = styled.div`
+const FormSide = styled.div<{ proPage?: boolean }>`
   width: 50vw;
   padding: 48px 80px;
   background: ${colors.beige100};
 
-  @media (max-width: 1200px) {
-    padding: 40px ${frames.mobile};
-  }
-  @media (max-width: 900px) {
+  ${media.mobile(`
     width: 100%;
+    padding: 20px ${frames.mobile} 0;
+    order: 1;
+s  `)}
+
+  @media (max-width: ${mobileThresholdPixels}) {
+    width: 100%;
+    padding: ${(props) => (props.proPage ? '0' : '20px')} ${frames.mobile} 0;
+    order: 1;
   }
 `;
 
@@ -34,6 +51,11 @@ const Title = styled.h2`
   margin: 0 0 24px;
   font-size: 28px;
   text-transform: uppercase;
+
+  ${media.mobile(`
+    font-size: 24px;
+    text-align: center;
+  `)}
 `;
 
 const Form = styled.form`
@@ -41,9 +63,10 @@ const Form = styled.form`
   grid-template-columns: 1fr 1fr;
   gap: 16px 16px;
 
-  @media (max-width: 700px) {
+  ${media.mobile(`
     grid-template-columns: 1fr;
-  }
+    gap: 12px;
+  `)}
 `;
 
 const Field = styled.div`
@@ -51,10 +74,13 @@ const Field = styled.div`
   flex-direction: column;
   gap: 8px;
 
-  /* champs qui prennent toute la ligne */
   &.full {
     grid-column: 1 / -1;
   }
+
+  ${media.mobile(`
+    gap: 6px;
+  `)}
 `;
 
 const Label = styled.label`
@@ -79,6 +105,10 @@ const Input = styled.input`
   &:focus {
     border-color: #bbb;
   }
+
+  ${media.mobile(`
+    font-size: 14px;
+  `)}
 `;
 
 const Textarea = styled.textarea`
@@ -95,6 +125,11 @@ const Textarea = styled.textarea`
   &:focus {
     border-color: #bbb;
   }
+
+  ${media.mobile(`
+    font-size: 14px;
+    min-height: 140px;
+  `)}
 `;
 
 const Submit = styled.button`
@@ -107,19 +142,24 @@ const Submit = styled.button`
   background: #f3f3f3;
   cursor: pointer;
   font-weight: 600;
+  font-size: 16px;
 
   &:hover {
     filter: brightness(0.98);
   }
+
+  ${media.mobile(`
+    width: 100%;
+  `)}
 `;
 
-const ImgSide = styled.div`
+const ImgSide = styled.div<{ proPage?: boolean }>`
   width: 50vw;
   position: relative;
 
-  @media (max-width: 900px) {
+  @media (max-width: ${mobileThresholdPixels}) {
     width: 100%;
-    height: 320px;
+    padding-top: ${(props) => (props.proPage ? '24px' : '0')};
   }
 `;
 
@@ -127,6 +167,12 @@ const Img = styled.img`
   width: 100%;
   height: 795px;
   object-fit: cover;
+
+  ${media.mobile(`
+    height: 250px;
+    object-position: center;
+    border-radius: 4px;
+  `)}
 `;
 
 interface ContactBlockProps {
@@ -160,12 +206,12 @@ export default function ContactBlock({ image, proPage }: ContactBlockProps) {
   };
 
   return (
-    <Section>
-      <ImgSide>
+    <Section proPage={proPage}>
+      <ImgSide proPage={proPage}>
         <Img src={image} alt="contact évènement" />
       </ImgSide>
 
-      <FormSide>
+      <FormSide proPage={proPage}>
         <Title>Nous contacter</Title>
         <Form onSubmit={handleSubmit} noValidate>
           {/* Honeypot anti-bot */}

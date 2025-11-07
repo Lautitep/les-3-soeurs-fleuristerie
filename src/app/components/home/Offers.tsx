@@ -1,11 +1,23 @@
 import styled from 'styled-components';
 import { frames, margins } from '../styledComponents';
+import { media } from '@/app/media';
 
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
   padding: ${margins.desktop} ${frames.desktop};
   gap: 20px;
+
+  ${media.tablet(`
+    padding: ${margins.mobile} ${frames.tablet};
+    `)}
+
+  ${media.mobile(`
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: ${margins.mobile} ${frames.mobile} 0;
+  `)}
 `;
 
 const ImgContainer = styled.div`
@@ -22,6 +34,11 @@ const ImgContainer = styled.div`
   &:hover .overlay-text::after {
     width: 100%;
   }
+
+  ${media.mobile(`
+    width: 100%;
+    max-height: 200px;
+  `)}
 `;
 
 const Img = styled.img`
@@ -29,6 +46,11 @@ const Img = styled.img`
   height: 100%;
   display: block;
   border-radius: 5px;
+  ${media.mobile(`
+    max-height: 200px;
+    object-fit: cover;
+    object-position: 50% 22%;
+  `)}
 `;
 
 const Overlay = styled.div`
@@ -43,11 +65,15 @@ const Overlay = styled.div`
   align-items: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+  ${media.mobile(`
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.25);
+  `)}
 `;
 
 const OverlayText = styled.a`
   color: white;
-  font-size: 1.5rem;
+  font-size: 24px;
   text-decoration: none;
   font-weight: bold;
   position: relative;

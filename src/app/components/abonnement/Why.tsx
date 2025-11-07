@@ -7,6 +7,7 @@ import {
   TitleH3,
 } from '../styledComponents';
 import { Truck, Flower2, CalendarCheck2, CreditCard } from 'lucide-react';
+import { media } from '@/app/media';
 
 const Container = styled.section`
   display: flex;
@@ -14,6 +15,16 @@ const Container = styled.section`
   align-items: center;
   padding: ${margins.desktop} ${frames.desktop};
   gap: 30px;
+
+  ${media.tablet(`
+    padding: ${margins.mobile} ${frames.tablet};
+    gap: 24px;
+  `)}
+
+  ${media.mobile(`
+    padding: ${margins.mobile} ${frames.mobile};
+    gap: 20px;
+  `)}
 `;
 
 const Text = styled.p`
@@ -22,6 +33,17 @@ const Text = styled.p`
   color: ${colors.grey};
   text-align: center;
   width: 70%;
+
+  ${media.tablet(`
+    width: 85%;
+    font-size: 16px;
+  `)}
+
+  ${media.mobile(`
+    width: 100%;
+    font-size: 15px;
+    line-height: 1.5;
+  `)}
 `;
 
 const Grid = styled.div`
@@ -29,6 +51,17 @@ const Grid = styled.div`
   flex-wrap: wrap;
   gap: 40px;
   justify-items: center;
+
+  ${media.tablet(`
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  `)}
+
+  ${media.mobile(`
+    grid-template-columns: 1fr;
+    gap: 24px;
+  `)}
 `;
 
 const Item = styled.div`
@@ -38,6 +71,10 @@ const Item = styled.div`
   text-align: center;
   max-width: 260px;
   gap: 14px;
+
+  ${media.mobile(`
+    max-width: 90%;
+  `)}
 `;
 
 const IconWrap = styled.div`
@@ -47,6 +84,10 @@ const IconWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  ${media.mobile(`
+    padding: 14px;
+  `)}
 `;
 
 const Label = styled.p`
@@ -63,7 +104,7 @@ const Description = styled.p`
 export default function Why() {
   return (
     <Container>
-      <TitleH3>
+      <TitleH3 center>
         Des fleurs locales, livrées chaque mois avec soin, au rythme des saisons
       </TitleH3>
       <Text>
@@ -71,9 +112,10 @@ export default function Why() {
         mois. <br />
         L’abonnement Les 3 Sœurs s’adresse à celles et ceux qui veulent fleurir
         leur quotidien ou offrir une attention unique, avec des fleurs locales,
-        fraîches et de saison. Chaque mois, recevez une création inspirée de la
-        nature et du savoir-faire artisanal de l’atelier, pour prolonger la
-        beauté des saisons et soutenir la fleur française.
+        fraîches et de saison. Chaque mois, recevez votre bouquet le deuxième
+        vendredi du mois, une création inspirée de la nature et du savoir-faire
+        artisanal de l’atelier, pour prolonger la beauté des saisons et soutenir
+        la fleur française.
       </Text>
       <Grid>
         <Item>
@@ -82,7 +124,8 @@ export default function Why() {
           </IconWrap>
           <Label>Livraison à proximité</Label>
           <Description>
-            Livraison possible dans un rayon de 15 km autour d’Arras.
+            Livraison possible dans un rayon de 15 km autour d’Arras, le 2e
+            vendredi du mois.
           </Description>
         </Item>
 

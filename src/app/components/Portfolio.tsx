@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { margins, colors, frames } from './styledComponents';
+import { media } from '../media';
 
 type Photo = {
   src: string;
@@ -18,18 +19,14 @@ const GAP = 8;
 
 const Container = styled.section`
   margin: 0 ${frames.desktop} ${margins.desktop};
+  ${media.tablet(`
+    margin: 0 ${frames.tablet} ${margins.mobile};
+  `)}
 `;
 
 const Masonry = styled.div`
   column-count: 3;
   column-gap: ${GAP}px;
-
-  @media (max-width: 900px) {
-    column-count: 2;
-  }
-  @media (max-width: 600px) {
-    column-count: 1;
-  }
 `;
 
 const Card = styled.figure`

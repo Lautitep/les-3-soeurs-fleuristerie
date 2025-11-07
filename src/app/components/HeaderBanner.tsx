@@ -1,6 +1,7 @@
 'use client';
 import styled from 'styled-components';
 import { colors, fontSizes, frames } from './styledComponents';
+import { media } from '../media';
 
 const Container = styled.div`
   width: 100%;
@@ -21,6 +22,10 @@ const Img = styled.img<{ objectPosition?: string }>`
   object-fit: cover;
   object-position: ${({ objectPosition }) =>
     objectPosition ? objectPosition : 'top'};
+
+  ${media.mobile(`
+    object-position: center;
+  `)}
 `;
 
 const ImgOverlay = styled.div`
@@ -40,6 +45,11 @@ const OverlayBanner = styled.div<{ color: keyof typeof colors }>`
   color: ${colors.beige100};
   text-align: center;
   padding: 20px;
+
+  ${media.mobile(`
+    width: 90%;
+    padding: 16px 12px;
+  `)}
 `;
 
 const Title = styled.h1`
@@ -47,18 +57,19 @@ const Title = styled.h1`
   text-transform: uppercase;
   margin: 0;
   font-weight: 500;
+
+  ${media.mobile(`
+    font-size: 24px;
+  `)}
 `;
 
 const Subtitle = styled.h3`
   font-size: ${fontSizes.h3};
   font-weight: 200;
-`;
 
-const Text = styled.p`
-  font-size: 18px;
-  font-weight: 400;
-  margin: 8px 0 32px;
-  max-width: 741px;
+  ${media.mobile(`
+    font-size: 16px;
+  `)}
 `;
 
 export default function HeaderBanner({
@@ -83,7 +94,6 @@ export default function HeaderBanner({
       <OverlayBanner color={color}>
         <Title>{title}</Title>
         {subtitle ? <Subtitle>{subtitle}</Subtitle> : null}
-        {/* <Text>{text}</Text> */}
       </OverlayBanner>
     </Container>
   );

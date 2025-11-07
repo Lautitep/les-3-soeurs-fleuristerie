@@ -1,7 +1,8 @@
 'use client';
 
 import styled from 'styled-components';
-import { frames, colors, fontSizes, margins } from '../styledComponents';
+import { frames, colors, fontSizes } from '../styledComponents';
+import { media } from '@/app/media';
 
 const Section = styled.section`
   background-color: ${colors.beige200};
@@ -9,9 +10,13 @@ const Section = styled.section`
   text-align: center;
   color: ${colors.black};
 
-  @media (max-width: 900px) {
-    padding: 60px ${frames.mobile};
-  }
+  ${media.tablet(`
+    padding: 64px ${frames.tablet};
+  `)}
+
+  ${media.mobile(`
+    padding: 40px ${frames.mobile};
+  `)}
 `;
 
 const Title = styled.h3`
@@ -27,6 +32,13 @@ const Grid = styled.div`
   align-items: center;
   margin-top: 32px;
   row-gap: 14px;
+
+  ${media.mobile(`
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin: 24px auto 0;
+    width: 70%;
+  `)}
 `;
 
 const Card = styled.div`
@@ -36,6 +48,10 @@ const Card = styled.div`
     transform: scale(1.15);
     transition: transform 300ms ease-in-out;
   }
+
+  ${media.mobile(`
+    max-width: 70px;
+  `)}
 `;
 
 const Logo = styled.img<{ filter?: boolean; width?: number }>`
@@ -43,6 +59,10 @@ const Logo = styled.img<{ filter?: boolean; width?: number }>`
   height: auto;
   filter: ${(props) =>
     props.filter ? 'brightness(0) contrast(1.1);' : 'none'};
+
+  ${media.mobile(`
+    object-fit: contain;
+  `)}
 `;
 
 const locations = [

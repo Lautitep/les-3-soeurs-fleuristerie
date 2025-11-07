@@ -1,17 +1,28 @@
 'use client';
 import styled from 'styled-components';
 import { margins, frames, fontSizes } from '../styledComponents';
+import { media } from '@/app/media';
 
 const Container = styled.section`
   margin: ${margins.desktop} ${frames.desktop};
   padding: ${margins.desktop} 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 40px;
+  align-items: center;
 
-  @media (max-width: 900px) {
+  ${media.tablet(`
+    margin: ${margins.mobile} ${frames.tablet};
+    padding: ${margins.mobile} 0;
+    gap: 32px;
+  `)}
+
+  ${media.mobile(`
     grid-template-columns: 1fr;
-  }
+    margin: 0 ${frames.mobile} ${margins.mobile};
+    padding: ${margins.mobile} 0 0;
+    gap: 48px;
+  `)}
 `;
 
 const ImgBlock = styled.div`
@@ -19,10 +30,17 @@ const ImgBlock = styled.div`
   display: flex;
   align-items: flex-end;
   min-height: calc(var(--img) * 1.45);
+  justify-content: center;
 
-  @media (max-width: 900px) {
-    justify-content: center;
-  }
+  ${media.tablet(`
+    --img: 280px;
+  `)}
+
+  ${media.mobile(`
+    --img: 250px;
+    min-height: auto;
+    align-items: center;
+  `)}
 `;
 
 const Stage = styled.div`
@@ -30,9 +48,12 @@ const Stage = styled.div`
   width: var(--img);
   isolation: isolate;
 
-  @media (max-width: 900px) {
-    margin: 0 auto;
-  }
+  ${media.mobile(`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `)}
 `;
 
 const Img1 = styled.img`
@@ -40,10 +61,25 @@ const Img1 = styled.img`
   height: var(--img);
   object-fit: cover;
   z-index: 2;
-  border-radius: 5px;
+  border-radius: 4px;
   position: absolute;
   top: -45%;
   right: -40%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+  ${media.tablet(`
+    top: -30%;
+    right: -25%;
+  `)}
+
+  ${media.mobile(`
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    margin-bottom: 16px;
+  `)}
 `;
 
 const Img2 = styled.img`
@@ -54,13 +90,10 @@ const Img2 = styled.img`
   z-index: 1;
   border-radius: 5px;
 
-  @media (max-width: 900px) {
-    /* Sur mobile, on peut repasser à plat si besoin */
-    position: static;
+  ${media.mobile(`
     width: 100%;
     height: auto;
-    margin-top: 12px;
-  }
+  `)}
 `;
 
 const TextBlock = styled.div`
@@ -71,21 +104,54 @@ const TextBlock = styled.div`
   text-align: center;
   gap: 20px;
   padding: 0 20px;
+
+  ${media.tablet(`
+    padding: 0 ${frames.tablet};
+  `)}
+
+  ${media.mobile(`
+    padding: 0;
+    gap: 16px;
+    order: -1;
+  `)}
 `;
 
 const Logo = styled.img`
   width: 200px;
   height: auto;
-`;
 
-const Text = styled.p`
-  font-size: ${fontSizes.body};
+  ${media.tablet(`
+    width: 160px;
+  `)}
+
+  ${media.mobile(`
+    width: 140px;
+  `)}
 `;
 
 const Subtitle = styled.h3`
   font-size: ${fontSizes.h3};
   text-transform: uppercase;
   font-weight: 500;
+
+  ${media.tablet(`
+    font-size: 20px;
+  `)}
+`;
+
+const Text = styled.p`
+  font-size: ${fontSizes.body};
+  line-height: 1.5;
+  max-width: 600px;
+
+  ${media.tablet(`
+    font-size: 15px;
+  `)}
+
+  ${media.mobile(`
+    font-size: 15px;
+    max-width: none;
+  `)}
 `;
 
 export default function Josette() {

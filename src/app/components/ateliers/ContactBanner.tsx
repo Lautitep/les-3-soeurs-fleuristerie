@@ -6,6 +6,7 @@ import {
   fontSizes,
   MailButton,
 } from '../styledComponents';
+import { media } from '@/app/media';
 
 const Container = styled.div`
   position: relative;
@@ -29,6 +30,16 @@ const Container = styled.div`
     background: rgba(0, 0, 0, 0.15);
     z-index: 1;
   }
+
+  ${media.tablet(`
+    padding: 40px;
+    margin: 64px ${frames.tablet} ${margins.mobile};
+  `)}
+
+  ${media.mobile(`
+    padding: 20px;
+    margin: 40px ${frames.mobile} ${margins.mobile};
+  `)}
 `;
 
 const Text = styled.p`

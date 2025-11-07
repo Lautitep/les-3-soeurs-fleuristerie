@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const menuBarHeightPixels = '60px';
+export const mobileThresholdPixels = '767px';
+export const tabletThresholdPixels = '1024px';
 
 export const colors = {
   white: '#FFFFFF',
@@ -23,6 +25,7 @@ export const colors = {
 // sur les côtés
 export const frames = {
   desktop: '136px',
+  tablet: '64px',
   mobile: '24px',
 };
 
@@ -97,8 +100,9 @@ export const MailButton = styled.a<{ white?: boolean }>`
   }
 `;
 
-export const TitleH3 = styled.h3`
+export const TitleH3 = styled.h3<{ center?: boolean }>`
   text-transform: uppercase;
   font-size: ${fontSizes.h3};
   font-weight: 400;
+  text-align: ${(p) => (p.center ? 'center' : '')};
 `;

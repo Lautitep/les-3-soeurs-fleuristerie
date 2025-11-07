@@ -1,13 +1,20 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { colors, margins } from '../styledComponents';
+import { colors } from '../styledComponents';
+import { media } from '@/app/media';
 
 const HeroVideoWrap = styled.section`
   position: relative;
   overflow: hidden;
   aspect-ratio: 22 / 9;
   background: ${colors.beige100};
+
+  ${media.mobile(`
+    aspect-ratio: 9 / 16;
+    width: 100%;
+    height: 80vh;
+  `)}
 `;
 
 const Video = styled.video`
@@ -15,6 +22,10 @@ const Video = styled.video`
   height: 100%;
   object-fit: cover;
   display: block;
+
+  ${media.mobile(`
+    object-position: center;
+  `)}
 `;
 
 export default function HeroVideo() {
@@ -26,13 +37,12 @@ export default function HeroVideo() {
 
     el.playbackRate = 0.9;
 
-    // Lazy play: ne lance la vidéo que quand visible
     const io = new IntersectionObserver(
       ([entry]) => {
         if (!el) return;
         if (entry.isIntersecting) {
           el.play().catch(() => {
-            /* ignore */
+            /* ignore autoplay restrictions */
           });
         } else {
           el.pause();
@@ -40,6 +50,7 @@ export default function HeroVideo() {
       },
       { threshold: 0.25 }
     );
+
     io.observe(el);
     return () => io.disconnect();
   }, []);
@@ -54,20 +65,21 @@ export default function HeroVideo() {
         preload="metadata"
         poster="/video/hero-poster-2.jpg"
       >
-        {/* Version mobile (plus légère) en premier, puis desktop */}
+        {/* Version mobile allégée */}
         <source
-          src="/video/hero-video-2.webm"
+          src="/video/hero-video-mobile.webm"
           type="video/webm"
-          media="(max-width: 768px)"
+          media="(max-width: 767px)"
         />
         <source
-          src="/video/hero-video-2.mp4"
+          src="/video/hero-video-mobile.mp4"
           type="video/mp4"
-          media="(max-width: 768px)"
+          media="(max-width: 767px)"
         />
+
+        {/* Version desktop */}
         <source src="/video/hero-video-2.webm" type="video/webm" />
         <source src="/video/hero-video-2.mp4" type="video/mp4" />
-        {/* Fallback simple */}
       </Video>
     </HeroVideoWrap>
   );

@@ -1,9 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faFacebook,
-  faPinterest,
-  faInstagram,
-} from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import styled from 'styled-components';
 
 const IconsContainer = styled.div`
@@ -38,7 +34,7 @@ export default function SocialIcons() {
       </IconCircle>
       <IconCircle>
         <a
-          href="https://www.instagram.com/les3soeurs_fleuristerie?utm_source=ig_web_button_share_sheet&igsh=enIxaDludXd4OHJj"
+          href="https://www.instagram.com/les3soeurs_fleuristerie/"
           target="_blank"
           rel="noopener noreferrer"
         >
