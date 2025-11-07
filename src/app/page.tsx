@@ -13,7 +13,6 @@ export default function Home() {
       <Header />
       <InfoBanner />
       <Offers />
-      {/* <Ethics /> */}
       <About />
       <HeroVideo />
       <Josette />

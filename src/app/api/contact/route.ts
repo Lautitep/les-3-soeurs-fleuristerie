@@ -1,4 +1,3 @@
-// app/api/contact/route.ts
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
@@ -22,7 +21,7 @@ export async function POST(req: Request) {
       <p><strong>Nom :</strong> ${firstName ?? ''} ${lastName ?? ''}</p>
       <p><strong>Email :</strong> ${email ?? ''}</p>
       <p><strong>Téléphone :</strong> ${phone ?? ''}</p>
-      <p><strong>Date :</strong> ${date ?? ''}</p>
+      <p><strong>Date de l'évènement:</strong> ${date ?? ''}</p>
       <p><strong>Message :</strong></p>
       <p style="white-space:pre-wrap">${(message ?? '').replace(/</g, '&lt;')}</p>
     `;
