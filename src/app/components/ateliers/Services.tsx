@@ -5,7 +5,7 @@ import { media } from '@/app/media';
 const Container = styled.div`
   max-width: 1180px;
   width: 100%;
-  margin: 0 ${frames.desktop} ${margins.desktop};
+  margin: 0 auto ${margins.desktop};
   display: flex;
   flex-direction: column;
   align-items: center;

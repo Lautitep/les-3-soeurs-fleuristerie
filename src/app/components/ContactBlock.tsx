@@ -188,10 +188,20 @@ export default function ContactBlock({ image, proPage }: ContactBlockProps) {
     if (submitting) return;
 
     setSubmitting(true);
-    const data = new FormData(e.currentTarget);
+    const formData = new FormData(e.currentTarget);
+    const payload = Object.fromEntries(formData.entries());
 
     try {
-      const res = await fetch('/api/contact', { method: 'POST', body: data });
+      const res = await fetch(
+        'https://api-contact-les3soeurs.vercel.app/api/contact',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        }
+      );
       const json = await res.json().catch(() => ({}));
 
       if (!res.ok || json.ok === false) throw new Error('send-failed');
