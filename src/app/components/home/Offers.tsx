@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { frames, margins } from '../styledComponents';
 import { media } from '@/app/media';
+import Link from 'next/link';
 
 const Container = styled.div`
   display: flex;
@@ -71,7 +72,7 @@ const Overlay = styled.div`
   `)}
 `;
 
-const OverlayText = styled.a`
+const OverlayLink = styled(Link)`
   color: white;
   font-size: 24px;
   text-decoration: none;
@@ -96,25 +97,25 @@ export default function Offers() {
       <ImgContainer>
         <Img src="/offers/offer.jpg" alt="offre évènements" />
         <Overlay className="overlay">
-          <OverlayText href="/evenements" className="overlay-text">
+          <OverlayLink href="/evenements" className="overlay-text">
             Évènements
-          </OverlayText>
+          </OverlayLink>
         </Overlay>
       </ImgContainer>
       <ImgContainer>
         <Img src="/offers/offer2.jpg" alt="offre ateliers" />
         <Overlay className="overlay">
-          <OverlayText href="/ateliers" className="overlay-text">
+          <OverlayLink href="/ateliers" className="overlay-text">
             Ateliers
-          </OverlayText>
+          </OverlayLink>
         </Overlay>
       </ImgContainer>
       <ImgContainer>
         <Img src="/offers/offer3.jpg" alt="offre bouquet du mois" />
         <Overlay className="overlay">
-          <OverlayText href="/abonnement" className="overlay-text">
+          <OverlayLink href="/abonnement" className="overlay-text">
             Bouquet du mois
-          </OverlayText>
+          </OverlayLink>
         </Overlay>
       </ImgContainer>
     </Container>

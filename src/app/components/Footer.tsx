@@ -123,7 +123,7 @@ export default function Footer() {
       </BlockContainer>
 
       <FooterBottom>
-        © 2025, Les 3 Sœurs — Tissé de code et de pétales par Laubingo 🌷
+        © 2025, Les 3 Sœurs — Tissé de code et de pétales par Laura Petit 🌷
       </FooterBottom>
     </FooterContainer>
   );

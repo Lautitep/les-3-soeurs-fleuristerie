@@ -30,7 +30,6 @@ const ImgBlock = styled.div`
   display: flex;
   align-items: flex-end;
   min-height: calc(var(--img) * 1.45);
-  justify-content: center;
 
   ${media.tablet(`
     --img: 280px;
