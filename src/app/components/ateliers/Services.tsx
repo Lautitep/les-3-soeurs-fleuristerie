@@ -103,17 +103,17 @@ const articles = [
   {
     title: 'Ateliers enfants',
     text: 'Nos ateliers pour enfants sont l’occasion idéale de s’initier à l’univers des fleurs tout en s’amusant. Que ce soit pour un anniversaire, un moment de loisirs ou une activité découverte, chaque atelier éveille la curiosité, stimule la créativité et sensibilise à la nature. Accompagnés pas à pas, les enfants façonnent leur propre composition florale, découvrent les fleurs de saison, manipulent matières et couleurs, et repartent avec leur création ainsi que le plaisir d’avoir créé de leurs mains.',
-    image: '/ateliers/enfants.jpg',
+    image: '/ateliers-image/enfants.jpg',
   },
   {
     title: 'EVJF, Baby shower, anniversaires',
     text: 'Une parenthèse joyeuse et créative pour célébrer vos plus beaux moments. Autour d’une ambiance conviviale et détendue, vous apprendrez à composer une création florale – couronne, bouquet ou centre de table – guidés pas à pas et avec des fleurs de saison. Entre rires, complicité et petites douceurs partagées, chaque participante repart avec sa réalisation et le souvenir d’un instant unique à vivre ensemble.',
-    image: '/ateliers/evjf2.jpeg',
+    image: '/ateliers-image/evjf2.jpeg',
   },
   {
     title: 'Ateliers professionnels',
     text: 'Nos ateliers professionnels s’adressent aussi bien aux entreprises qu’aux institutions désireuses de proposer un moment créatif et porteur de sens. Adaptés à vos objectifs – cohésion d’équipe, cadeau à la clientèle, initiation aux techniques florales – ils allient transmission de savoir-faire, plaisir de créer et convivialité. De vrais instants de partage, qui font fleurir les idées et les relations.',
-    image: '/ateliers/pro.jpg',
+    image: '/ateliers-image/pro.jpg',
   },
 ];
 

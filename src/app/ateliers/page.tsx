@@ -25,7 +25,7 @@ const Ateliers = () => {
   return (
     <Container>
       <HeaderBanner
-        image="/ateliers/ateliers.header.jpg"
+        image="/ateliers-image/ateliers.header.jpg"
         title="Nos ateliers"
         subtitle="Des instants de création, accessibles à tous et riches en émotions."
         color="greenEucalyptus"
