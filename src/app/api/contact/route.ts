@@ -5,8 +5,7 @@ const resend = new Resend(process.env.RESEND_API_KEY!);
 
 export async function POST(req: Request) {
   try {
-    const form = await req.formData();
-    const data = Object.fromEntries(form) as Record<string, string>;
+    const data = await req.json();
 
     // Honeypot anti-spam
     if (data.website_trap) {
@@ -35,7 +34,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error(error);
+    console.error('Erreur contact API:', error);
     return NextResponse.json({ ok: false }, { status: 500 });
   }
 }

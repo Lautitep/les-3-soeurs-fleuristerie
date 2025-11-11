@@ -130,6 +130,11 @@ const Textarea = styled.textarea`
     border-color: #bbb;
   }
 
+  &::placeholder {
+    color: #999;
+    -webkit-text-fill-color: #999;
+  }
+
   ${media.mobile(`
     font-size: 14px;
     min-height: 140px;
