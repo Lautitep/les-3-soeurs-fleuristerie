@@ -97,11 +97,13 @@ const Input = styled.input`
   padding: 10px 12px;
   border: 1px solid #ddd;
   background: #fff;
+  color: #000;
   outline: none;
   border-radius: 6px;
   font-size: 12px;
   font-family: 'helvetica';
-
+  -webkit-text-fill-color: #000;
+  appearance: none;
   &:focus {
     border-color: #bbb;
   }
@@ -116,6 +118,8 @@ const Textarea = styled.textarea`
   padding: 12px;
   border: 1px solid #ddd;
   background: #fff;
+  color: #000;
+  -webkit-text-fill-color: #000;
   outline: none;
   border-radius: 6px;
   font-size: 12px;
