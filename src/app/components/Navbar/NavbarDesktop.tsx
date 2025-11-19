@@ -105,7 +105,7 @@ export default function Navbar({ isPink }: { isPink: boolean }) {
               alt="logo"
               width={150}
               height={0}
-              style={{ height: 'auto', marginTop: '7px' }}
+              style={{ height: 'auto', marginTop: '7px', cursor: 'pointer' }}
             />
           </Link>
         </NavItem>

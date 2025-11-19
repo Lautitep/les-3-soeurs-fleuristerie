@@ -4,6 +4,16 @@ const nextConfig = {
     unoptimized: true,
   },
   reactStrictMode: true,
+
+  async redirects() {
+    return [
+      {
+        source: '/boutique/:path*',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
