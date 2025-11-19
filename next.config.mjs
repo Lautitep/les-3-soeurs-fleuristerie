@@ -12,6 +12,11 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/index.php/boutique/:path*',
+        destination: '/',
+        permanent: true,
+      },
     ];
   },
 };
