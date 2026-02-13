@@ -159,7 +159,7 @@ export default function Josette() {
       <ImgBlock>
         <Stage>
           <Img1 src="/josette/josette1.jpg" alt="Josette Main" />
-          <Img2 src="/josette/josette7.jpg" alt="Josette Overlay" />
+          <Img2 src="/josette/josette2.jpg" alt="Josette Overlay" />
         </Stage>
       </ImgBlock>
 
@@ -169,16 +169,15 @@ export default function Josette() {
         <Text>
           À deux pas du beffroi d’Arras, Josette est le prolongement naturel de
           l’univers des 3 Sœurs : un lieu où la fleur est partout, vivante et
-          généreuse. Café, fleuriste et espace bien-être, on y déguste un thé ou
-          une pâtisserie fleurie, on y choisit des bouquets de saison, et l’on
-          s’offre une pause détente avec des soins inspirés par les fleurs.
+          généreuse. Café et fleuriste, on y déguste un thé ou une pâtisserie
+          fleurie, on y choisit des bouquets de saison, et l’on s’offre une
+          pause douce au coeur de la ville.
           <br />
-          Imaginé par Hélène et Claire – l’une spécialisée dans le bien-être
-          holistique, l’autre fleuriste engagée pour des créations locales et de
-          saison – Josette est né d’un rêve commun : créer un endroit convivial,
-          inspirant et délicatement fleuri.
+          Josette est aussi un clin d‘oeil tendre à Joséphine, la fille de
+          Claire. Un prénom qui évoque la transmission, la créativité et le goût
+          des choses simples, partagées autour d‘une table ou d‘un bouquet.
           <br />
-          Un lieu à vivre, à partager, et à aimer. 🌸
+          Un lieu chaleureux, à vivre, à partager... et à aimer. 🌸
         </Text>
       </TextBlock>
     </Container>

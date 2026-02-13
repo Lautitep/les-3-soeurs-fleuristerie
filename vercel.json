@@ -2,11 +2,6 @@
   "redirects": [
     { "source": "/boutique", "destination": "/", "permanent": true },
     { "source": "/boutique/:path*", "destination": "/", "permanent": true },
-    { "source": "/index.php/boutique", "destination": "/", "permanent": true },
-    {
-      "source": "/index.php/boutique/:path*",
-      "destination": "/",
-      "permanent": true
-    }
+    { "source": "/index.php/:path*", "destination": "/", "permanent": true }
   ]
 }

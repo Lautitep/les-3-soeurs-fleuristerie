@@ -8,12 +8,17 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/boutique',
+        destination: '/',
+        permanent: true,
+      },
+      {
         source: '/boutique/:path*',
         destination: '/',
         permanent: true,
       },
       {
-        source: '/index.php/boutique/:path*',
+        source: '/index.php/:path*',
         destination: '/',
         permanent: true,
       },
